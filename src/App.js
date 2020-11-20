@@ -1,0 +1,24 @@
+import React, {useState} from 'react'
+import './styles/app.scss'
+
+import Player from './components/Player'
+import Song from './components/Song'
+
+import data from './util'
+
+function App() {
+  //State
+  const [songs, setState] = useState(data());
+  const [currrentSong, setCurrentSong] = useState(songs[0]);
+  const [isPlaying, setIsPlaying] = useState(false)
+
+  return (
+    <div className="App">
+    <Song currrentSong={currrentSong} />
+    <Player currrentSong={currrentSong} isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
+     
+    </div>
+  );
+}
+
+export default App;
